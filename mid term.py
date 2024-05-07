@@ -32,13 +32,13 @@ class Hall():
         self.rows = rows
         self.cols = cols
         if id in self.seats:
-        
+            
             if self.seats[id][self.rows-1][self.cols-1] == 'free':
                 self.seats[id][self.rows-1][self.cols-1] = 'Booked'
                 print(f'Seat ({self.rows},{self.cols}) booked successfully.')
 
             else:
-                print("\nSeat is already booked !\n")               
+                print("\nSeat is already booked !\n")
 
         else:
             print('\nInvalid Show ID\n')
@@ -71,7 +71,7 @@ Hall1.entry_show(334,'Shawshank Redemption','7:00 pm')
 
 
 while True:
-    print("\t!!Welcome to Star Cinema!!")
+    print("\n\t!!Welcome to Star Cinema!!")
     print("1.View all show today")
     print("2.View available seats")
     print("3.Book ticket")
@@ -82,19 +82,22 @@ while True:
     if ch == 1:
         Hall1.view_show_list()
 
-    if ch == 2:
+    elif ch == 2:
         show_id = int(input("Enter Show id: "))
         Hall1.view_available_seats(show_id)
 
-    if ch == 3:
+    elif ch == 3:
         show_id = int(input("Enter Show id: "))
         row = int(input("Enter row number: "))
         col = int(input("Enter column number: "))
-        Hall1.book_seats(show_id,row,col)
+        if row<1 or row>10 and col<1 or col>10:
+            print("Invalid Seat Number")
+        else: 
+            Hall1.book_seats(show_id,row,col)
 
-    if ch == 4:
+    elif ch == 4:
         print("***Thanks for being with Star Cinema***")
         break
 
     else:
-        print("\nInvalid choice")
+        print("\nInvalid choice\n")
