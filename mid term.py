@@ -59,6 +59,8 @@ class Hall():
             print("Available Seats:")
             for row in self.seats[show_id]:
                 print(row)
+        else :
+            print("\nInvalid Show ID\n")
 
 
 star_cinema = Star_Cinema()
@@ -91,7 +93,7 @@ while True:
         row = int(input("Enter row number: "))
         col = int(input("Enter column number: "))
         if row<1 or row>10 and col<1 or col>10:
-            print("Invalid Seat Number")
+            print("\nInvalid Seat Number\n")
         else: 
             Hall1.book_seats(show_id,row,col)
 
